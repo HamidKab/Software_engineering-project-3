@@ -1,8 +1,8 @@
-#Boggle solver
+# Boggle solver
 
 Group members: Hamid kabia, Prakriti Subedi
 
-#Description
+# Description
 
 The boggle solver is a depth-first search algorithm that utilizes a trie to store and find words on a randomized NxN-sized grid. The code starts with the class Trienode, which initializes the children stored in the trie. The next class referenced in the code is the Trie. The Trie first initializes the root by calling trienode. There are multiple functions within the class, which include: Insert, starts with, and is_word. 
 The insert function takes two parameters: self and word. It then creates a node that iterates through a word and pulls a character from the word. It then checks if the character is already in node.children, if it is not in the node.children, it starts a new trienode at that character, else it moves the node pointer down to the next level. After the loop finishes, the last node is marked by setting the node.is_end to True to signify that we reached the last character in the word. 
@@ -14,6 +14,7 @@ getSolution only takes one parameter, self. getSolution creates a list called re
 The function _solve handles the algorithm of our boggle solver that finds the words. First the function checks to see if the grid is nonempty. If the grid is nonempty it iterates through the rows and columns of the grid creating a new identical matrix called visited with the cells marked false. It then calls the function dfs to do a depth first search of the matrix.
 DFS checks to see if the grid is valid or if the search has already visited this cell. It then takes the character in the current tile and does a handful of checks for special characters like “QU” and “ST”. The code will then create and temporary node to handle the special cases. At the end of the process, we mark the tile as visited and add the word to our solutions if the word is longer than 3 letters and next_node.is_end resolves as true. We then repeat the processes recursively.
 
-#Defects and Recommendations
-	In my code, there are a lot of naming inconsistencies bouncing back from names like setDict to starts_with.  One of the recommendations was to remain consistent with my naming conventions to align with Python's style guide. They also recommended that I add short docstrings explaining the purpose of key methods such as dfs() and _solve(). All in all, they said it took them around 30 minutes to review my code.
+# Defects and Recommendations
+
+In my code, there are a lot of naming inconsistencies bouncing back from names like setDict to starts_with.  One of the recommendations was to remain consistent with my naming conventions to align with Python's style guide. They also recommended that I add short docstrings explaining the purpose of key methods such as dfs() and _solve(). All in all, they said it took them around 30 minutes to review my code.
 
