@@ -1,1 +1,20 @@
-# Software_engineering-project-3
+#Boggle solver
+
+Group members: Hamid kabia, Prakriti Subedi
+
+#Description
+
+The boggle solver is a depth-first search algorithm that utilizes a trie to store and find words on a randomized NxN-sized grid. The code starts with the class Trienode, which initializes the children stored in the trie. The next class referenced in the code is the Trie. The Trie first initializes the root by calling trienode. There are multiple functions within the class, which include: Insert, starts with, and is_word. 
+The insert function takes two parameters: self and word. It then creates a node that iterates through a word and pulls a character from the word. It then checks if the character is already in node.children, if it is not in the node.children, it starts a new trienode at that character, else it moves the node pointer down to the next level. After the loop finishes, the last node is marked by setting the node.is_end to True to signify that we reached the last character in the word. 
+The next function is starts_with. This function takes two parameters as well: self and prefix. It then creates a node then iterates through a prefix and checks whether the character exists in node.children. If it does not exist in node.children the function returns false otherwise it returns true. In simple words this function checks whether the prefix starts with a specific character.
+The last function in the class is, is_word which also takes two parameters: self and word. It then initializes the node and iterates through characters in a word. It checks whether or not the character exists in node.children. If it does not that means the character and thus the word does not exist in the trie causing the function to return false. Otherwise the function returns true.
+The next class is the boggle class. This class handles a large chunk of what we need the boggle to do. The class first initializes a grid, rows, columns, a dictionary, and set. Within the initialization we iterate over the words in the dictionary and capitalize each word and check to see if the length is over 3 characters. If the word meets these conditions it is inserted into the trie. The boggle class has a handful of classes that make it work, those classes being: setGrid, setDict, getSolution, and _solve.
+The function setGrid takes two parameters: self and grid. This function takes a grid and counts the number of rows and columns it contains. It then creates a set of solutions and sends the grid to the solver. The function setDict takes two parameters: self and dictionary. This function's primary purpose is to allow a dictionary of valid words after the boggle object has been created.
+getSolution only takes one parameter, self. getSolution creates a list called results and iterates through our set of solutions and appends the words into results returning a sorted version of results.
+The function _solve handles the algorithm of our boggle solver that finds the words. First the function checks to see if the grid is nonempty. If the grid is nonempty it iterates through the rows and columns of the grid creating a new identical matrix called visited with the cells marked false. It then calls the function dfs to do a depth first search of the matrix.
+DFS checks to see if the grid is valid or if the search has already visited this cell. It then takes the character in the current tile and does a handful of checks for special characters like “QU” and “ST”. The code will then create and temporary node to handle the special cases. At the end of the process, we mark the tile as visited and add the word to our solutions if the word is longer than 3 letters and next_node.is_end resolves as true. We then repeat the processes recursively.
+
+#Defects and Recommendations
+
+	In my code, there are a lot of naming inconsistencies bouncing back from names like setDict to starts_with.  One of the recommendations was to remain consistent with my naming conventions to align with Python's style guide. They also recommended that I add short docstrings explaining the purpose of key methods such as dfs() and _solve(). All in all, they said it took them around 30 minutes to review my code.
+
