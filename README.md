@@ -15,6 +15,5 @@ The function _solve handles the algorithm of our boggle solver that finds the wo
 DFS checks to see if the grid is valid or if the search has already visited this cell. It then takes the character in the current tile and does a handful of checks for special characters like “QU” and “ST”. The code will then create and temporary node to handle the special cases. At the end of the process, we mark the tile as visited and add the word to our solutions if the word is longer than 3 letters and next_node.is_end resolves as true. We then repeat the processes recursively.
 
 #Defects and Recommendations
-
 	In my code, there are a lot of naming inconsistencies bouncing back from names like setDict to starts_with.  One of the recommendations was to remain consistent with my naming conventions to align with Python's style guide. They also recommended that I add short docstrings explaining the purpose of key methods such as dfs() and _solve(). All in all, they said it took them around 30 minutes to review my code.
 
